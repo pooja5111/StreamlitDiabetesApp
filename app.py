@@ -43,7 +43,7 @@ add_bg_from_url()
 
 
 # loading the saved model
-loaded_model = pickle.load(open('C:/diabetis prediction model/trained_model.sav' , 'rb'))
+loaded_model = pickle.load(open('trained_model.sav' , 'rb'))
 
 # cr4eating a function for prediction
 
