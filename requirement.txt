@@ -1,0 +1,5 @@
+numpy
+pickle-mixin
+streamlit-option-menu
+scikit-learn
+protobuf==
