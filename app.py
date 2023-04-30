@@ -9,7 +9,7 @@ import numpy as np
 import pickle
 import streamlit as st
 import time
-from sklearn.preprocessing import StandardScaler
+#from sklearn.preprocessing import StandardScaler
 
 
 def add_bg_from_url():
@@ -56,12 +56,12 @@ def diabetes_prediction(input_data):
     
     
    ## standardize the input data
-    scaler = StandardScaler()
-    scaler.fit(input_data_reshaped)
-    standardized_data = scaler.transform(input_data_reshaped)
-    std_data = scaler.transform(standardized_data)
-    print(std_data)
-    prediction = loaded_model.predict(std_data)
+    #scaler = StandardScaler()
+    #scaler.fit(input_data_reshaped)
+    #standardized_data = scaler.transform(input_data_reshaped)
+    #std_data = scaler.transform(standardized_data)
+    #print(std_data)
+    prediction = loaded_model.predict(input_data_reshaped)
     print(prediction)
 
     if (prediction[0] == 0):
