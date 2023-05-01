@@ -1,5 +1,3 @@
-numpy
-pickle-mixin
-streamlit
-time
-scikit-learn
+pickle-mixin == 1.0.2
+streamlit == 1.19.0
+scikit-learn == 1.2.1
