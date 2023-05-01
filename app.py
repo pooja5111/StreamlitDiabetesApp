@@ -5,7 +5,7 @@ Created on Mon Apr 24 17:07:49 2023
 @author: ASUS
 """
 
-import numpy as np
+
 import pickle
 import streamlit as st
 import time
@@ -43,16 +43,16 @@ add_bg_from_url()
 
 
 # loading the saved model
-loaded_model = pickle.load(open('trained_model.py' , 'rb'))
+loaded_model = pickle.load(open('trained_model.sav' , 'rb'))
 
 # cr4eating a function for prediction
 
-def diabetes_prediction(input_data):
+#def diabetes_prediction(input_data):
     
     #changing the input data into the numpy arrray
-    input_data_as_numpy_array = np.asarray(input_data)
+    #input_data_as_numpy_array = np.asarray(input_data)
     # reshape the array as we predicting for one instance
-    input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
+    #input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
     
     
    ## standardize the input data
@@ -61,13 +61,13 @@ def diabetes_prediction(input_data):
     #standardized_data = scaler.transform(input_data_reshaped)
     #std_data = scaler.transform(standardized_data)
     #print(std_data)
-    prediction = loaded_model.predict(input_data_reshaped)
-    print(prediction)
+    #prediction = loaded_model.predict(input_data_reshaped)
+    #print(prediction)
 
-    if (prediction[0] == 0):
-      return'the person is not diabetic'
-    else:
-      return'the person is diabetic'
+    #if (prediction[0] == 0):
+      #return'the person is not diabetic'
+    #else:
+      #return'the person is diabetic'
 
 
 def main():
@@ -97,6 +97,12 @@ def main():
     
     if st.button('Diabetes Test Result'):
         diagnosis = diabetes_prediction([Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age])
+        if(diagnosis[0] == 1) :
+            diagnosis = 'The person is diabetic'
+        else:
+            diagnosis = 'The person is not diabetic'
+            
+            
         
         
     st.success(diagnosis)
