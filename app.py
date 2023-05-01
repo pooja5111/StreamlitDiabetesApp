@@ -94,9 +94,9 @@ def main():
     diagnosis = ''
     
     # cr4eating a button for prediction
-    diabetes_prediction = ''
+    
     if st.button('Diabetes Test Result'):
-        diagnosis = diabetes_prediction([Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age])
+        diagnosis = loaded_model.predict([[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
         if(diagnosis[0] == 1) :
             diagnosis = 'The person is diabetic'
         else:
